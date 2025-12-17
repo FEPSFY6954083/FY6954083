@@ -139,7 +139,6 @@
     <a href="https://www.mdpi.com/2079-4991/14/23/1953" target="_blank">
       Artificial graphite-based silicon composite anodes for lithium-ion batteries.
     </a>
-    Nanomaterials, 14(23).
   </p>
 
   <p>
@@ -171,32 +170,44 @@
   </p>
 </div>
 
-<!-- ===================== LAST UPDATED SCRIPT ===================== -->
+<!-- ===================== LAST UPDATED ===================== -->
 <div id="last-updated">Loading last update time...</div>
 
 <button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
-    Verify Last Modified Time
+  Verify Last Modified Time
 </button>
 
 <script>
-    async function getLastUpdatedTime() {
-        const username = 'FEPSFY6954083';
-        const repo = 'FY6954083';
-        const url = `https://api.github.com/repos/${username}/${repo}/commits`;
-        try {
-            const response = await fetch(url);
-            const commits = await response.json();
-            const lastCommitDate = new Date(commits[0].commit.committer.date);
-            document.getElementById('last-updated').innerText =
-              `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
-        } catch {
-            document.getElementById('last-updated').innerText = 'Error fetching update time.';
-        }
+  async function getLastUpdatedTime() {
+    const username = 'FEPSFY6954083';
+    const repo = 'FY6954083';
+    const url = `https://api.github.com/repos/${username}/${repo}/commits`;
+
+    try {
+      const response = await fetch(url);
+      const commits = await response.json();
+
+      if (commits.length > 0) {
+        const lastCommitDate = new Date(commits[0].commit.committer.date);
+        document.getElementById('last-updated').innerText =
+          'Last Modified Time: ' + lastCommitDate.toLocaleString();
+      } else {
+        document.getElementById('last-updated').innerText =
+          'No commits found.';
+      }
+    } catch (error) {
+      document.getElementById('last-updated').innerText =
+        'Error fetching update time.';
     }
-    window.onload = getLastUpdatedTime;
+  }
+
+  function verifyLastUpdatedTime() {
+    getLastUpdatedTime();
+    alert("Last modified time verified from GitHub.");
+  }
 </script>
 
-<!-- ===================== WORD COUNT SCRIPT ===================== -->
+<!-- ===================== WORD COUNT ===================== -->
 <p id="totalWordCount"></p>
 
 <script>
@@ -209,11 +220,18 @@
     const total =
       displayWordCount("Introduction_InText") +
       displayWordCount("Analysis_InText");
-    document.getElementById("totalWordCount").innerText =
-      `Total word count: ${total}`;
-  }
 
-  window.onload = displayTotalWordCount;
+    document.getElementById("totalWordCount").innerText =
+      "Total word count: " + total;
+  }
+</script>
+
+<!-- ===================== ON LOAD ===================== -->
+<script>
+  window.onload = function () {
+    getLastUpdatedTime();
+    displayTotalWordCount();
+  };
 </script>
 
 </body>
