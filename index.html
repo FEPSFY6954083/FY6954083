@@ -38,6 +38,18 @@
 
 <body>
 
+<!-- FUNCTIONING TIMESTAMP -->
+<div id="last-updated">
+  Loading last modified time...
+</div>
+
+<button
+  onclick="verifyLastUpdatedTime()"
+  style="display: block; margin: 10px auto; padding: 8px 16px;">
+  Verify Last Modified Time
+</button>
+
+
 <img src="WebBanner2023.png" alt="Banner" width="1200" height="300">
 
 <h1>ENG0018 Computer Laboratory 2025/26</h1>
@@ -65,7 +77,7 @@
   </p>
 </div>
 
-<div class="section">
+<div class="section countable">
   <h2>Introduction</h2>
   <p>
     Smartphones are now deeply embedded in everyday life, serving as tools for communication, productivity, entertainment,
@@ -92,7 +104,7 @@
   </p>
 </div>
 
-<div class="section">
+<div class="section countable">
   <h2>Ethical and Environmental Issues in Battery Supply Chains</h2>
   <p>
     One of the most significant challenges associated with lithium-ion batteries lies in the ethical and environmental impact
@@ -116,7 +128,7 @@
   </p>
 </div>
 
-<div class="section">
+<div class="section countable">
   <h2>Technical Limitations of Lithium-Ion Batteries</h2>
   <p>
     Alongside ethical concerns, lithium-ion batteries face significant technical limitations that restrict their suitability
@@ -138,7 +150,7 @@
   </p>
 </div>
 
-<div class="section">
+<div class="section countable">
   <h2>Emerging Alternatives: Silicon-Carbon Composite Anodes</h2>
   <p>
     Silicon-carbon composite anodes represent one of the most promising alternatives to conventional graphite anodes.
@@ -162,7 +174,7 @@
   </p>
 </div>
 
-<div class="section">
+<div class="section countable">
   <h2>Industry Implementation and Innovation</h2>
   <p>
     Importantly, silicon-carbon battery technology is no longer confined to academic research. In 2025, HONOR’s
@@ -184,7 +196,7 @@
   </p>
 </div>
 
-<div class="section">
+<div class="section countable">
   <h2>Conclusion</h2>
   <p>
     Lithium-ion batteries present a combination of ethical, environmental, and technical challenges that can no longer be
@@ -238,6 +250,157 @@
   </p>
 
 </div>
+
+
+<!-- FUNCTIONING WORD COUNT -->
+<p id="totalWordCount">
+  Total word count: calculating...
+</p>
+
+<hr>
+
+
+<script>
+
+  /*
+    TIMESTAMP
+
+    This checks the most recent commit in your GitHub repository.
+  */
+  async function getLastUpdatedTime() {
+
+    const username = 'FEPSFY6954083';
+    const repo = 'FY6954083';
+
+    const url =
+      `https://api.github.com/repos/${username}/${repo}/commits`;
+
+    try {
+
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error('GitHub request failed');
+      }
+
+      const commits = await response.json();
+
+      if (commits.length > 0) {
+
+        const lastCommitDate =
+          new Date(commits[0].commit.committer.date);
+
+        document.getElementById('last-updated').innerText =
+          'Last Modified Time: ' +
+          lastCommitDate.toLocaleString();
+
+      } else {
+
+        document.getElementById('last-updated').innerText =
+          'No commits found';
+
+      }
+
+    } catch (error) {
+
+      document.getElementById('last-updated').innerText =
+        'Unable to retrieve last modified time';
+
+    }
+  }
+
+
+  /*
+    Lets the button refresh the timestamp.
+  */
+  function verifyLastUpdatedTime() {
+
+    getLastUpdatedTime();
+
+  }
+
+
+  /*
+    WORD COUNT
+
+    Only sections marked "countable" are included.
+
+    Therefore:
+    - Abstract is excluded
+    - References are excluded
+    - Main article body is included
+  */
+  function displayTotalWordCount() {
+
+    const sections =
+      document.querySelectorAll('.countable');
+
+    let combinedText = '';
+
+    sections.forEach(function(section) {
+
+      /*
+        Only count paragraph text.
+
+        This prevents section headings such as
+        "Introduction" from being included.
+      */
+      const paragraphs =
+        section.querySelectorAll('p');
+
+      paragraphs.forEach(function(paragraph) {
+
+        combinedText +=
+          ' ' + paragraph.textContent;
+
+      });
+
+    });
+
+
+    combinedText =
+      combinedText.trim();
+
+
+    let totalWordCount = 0;
+
+
+    if (combinedText !== '') {
+
+      const words =
+        combinedText.split(/\s+/);
+
+      totalWordCount =
+        words.filter(function(word) {
+
+          return word.length > 0;
+
+        }).length;
+
+    }
+
+
+    document.getElementById('totalWordCount').innerText =
+      'Total word count: ' + totalWordCount;
+
+  }
+
+
+  /*
+    Run both when the page loads.
+  */
+  window.addEventListener(
+    'load',
+    function() {
+
+      getLastUpdatedTime();
+
+      displayTotalWordCount();
+
+    }
+  );
+
+</script>
 
 </body>
 </html>
