@@ -1,22 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>ENG0018 Computer Laboratory</title>
+  <meta charset="UTF-8">
+  <title>Better Batteries: Driving Sustainable and Efficient Power Solutions for Smartphones</title>
 
   <style>
     body {
       font-family: Calibri, sans-serif;
       margin: 40px;
       background-color: #ffffff;
+      line-height: 1.6;
     }
 
     .section {
       border: 1px solid #dcdcdc;
       background-color: #f5f5f5;
       padding: 20px;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
       border-radius: 6px;
+    }
+
+    h1, h2 {
+      color: #000000;
     }
 
     a {
@@ -27,198 +33,211 @@
     a:hover {
       text-decoration: underline;
     }
-
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-
-    li {
-      margin-bottom: 6px;
-    }
   </style>
 </head>
 
 <body>
 
-  <!-- LAST UPDATED TIMESTAMP -->
-  <div id="last-updated">Loading last update time...</div>
+<img src="WebBanner2023.png" alt="Banner" width="1200" height="300">
 
-  <button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
-    Verify Last Modified Time
-  </button>
+<h1>ENG0018 Computer Laboratory 2025/26</h1>
+<h2>Student URN: 6954083</h2>
 
-  <script>
-    async function getLastUpdatedTime() {
-      const username = 'FEPSFY6954083' // Replace with your GitHub username
-      const repo = 'FY6954083' // Replace with your repository name
+<hr>
 
-      const url = `https://api.github.com/repos/${username}/${repo}/commits`
+<h2>Conference Paper</h2>
 
-      try {
-        const response = await fetch(url)
-        const commits = await response.json()
+<hr>
 
-        if (commits.length > 0) {
-          const lastCommitDate = new Date(commits[0].commit.committer.date)
-          document.getElementById('last-updated').innerText =
-            'Last Modified Time: ' + lastCommitDate.toLocaleString()
-        } else {
-          document.getElementById('last-updated').innerText =
-            'No commits found'
-        }
-      } catch (error) {
-        document.getElementById('last-updated').innerText =
-          'Error fetching update time'
-      }
-    }
+<div class="section">
+  <h2>Abstract</h2>
+  <p>
+    Smartphones have advanced rapidly in capability over a relatively short period of time, yet battery technology has struggled
+    to keep pace with increasing performance demands. Lithium-ion batteries, which currently dominate the smartphone market,
+    present both ethical and technical challenges. From an ethical perspective, the sourcing of critical minerals such as cobalt
+    has been linked to human rights abuses and environmental degradation. Technically, lithium-ion batteries are approaching
+    practical limits in energy density, efficiency, and lifespan. This article investigates these challenges and evaluates
+    silicon-carbon composite anodes as a promising alternative battery technology. Using a review of peer-reviewed academic
+    literature, human rights reports, and recent industry innovation, the paper explores how silicon-carbon batteries can
+    deliver higher capacity, improved cycle stability, and greater sustainability. The findings suggest that future battery
+    development must balance efficiency, ethical sourcing, and environmental responsibility in order to power the next
+    generation of smartphones.
+  </p>
+</div>
 
-    function verifyLastUpdatedTime() {
-      getLastUpdatedTime()
-      alert('Last modified time verified from GitHub')
-    }
+<div class="section">
+  <h2>Introduction</h2>
+  <p>
+    Smartphones are now deeply embedded in everyday life, serving as tools for communication, productivity, entertainment,
+    and navigation. While smartphone processors, displays, and cameras have advanced significantly, battery performance has
+    not progressed at the same rate. This imbalance is particularly noticeable to users who increasingly rely on their
+    devices for long periods of time yet continue to experience limited battery life.
+  </p>
 
-    window.onload = getLastUpdatedTime
-  </script>
+  <p>
+    My interest in smartphone batteries stems from observing how quickly smartphones themselves have evolved and questioning
+    why their power sources have not advanced to the same extent. This curiosity led me to research how batteries are powered
+    and where their raw materials originate. As I explored this topic further, it became clear that battery technology is not
+    only a technical issue but also an ethical and environmental one. Although sustainability and ethical sourcing matter to
+    me when choosing technology, the structure of the industry makes it difficult for consumers to avoid products linked to
+    unethical practices.
+  </p>
 
-  <img src="WebBanner2023.png" alt="Banner" width="1200" height="300">
+  <p>
+    Lithium-ion batteries have dominated portable electronics for decades, yet they face growing criticism. Ethical concerns
+    surrounding cobalt mining are increasingly visible, while technical limitations such as degradation and efficiency ceilings
+    restrict further performance improvements (Rahman and Alharbi, 2024). This article examines these interconnected challenges
+    and assesses whether silicon-carbon composite anodes can provide a more efficient and sustainable solution for future
+    smartphones.
+  </p>
+</div>
 
-  <h1><b>ENG0018 Computer Laboratory 2025/26</b></h1>
-  <h2>Student URN: 6954083</h2>
+<div class="section">
+  <h2>Ethical and Environmental Issues in Battery Supply Chains</h2>
+  <p>
+    One of the most significant challenges associated with lithium-ion batteries lies in the ethical and environmental impact
+    of their supply chains. Cobalt, a key component used to stabilise battery cathodes, is predominantly mined in the Democratic
+    Republic of Congo. Investigations have revealed widespread issues including child labour, unsafe working conditions, and
+    severe environmental degradation in mining regions (Rights Lab, University of Nottingham, 2025).
+  </p>
 
-  <hr>
+  <p>
+    These practices highlight a stark imbalance between the technological benefits enjoyed by consumers and the human cost
+    borne by mining communities. In addition to human rights abuses, mining activities often contaminate water sources,
+    degrade soil quality, and destroy local ecosystems, creating long-term environmental harm. Such impacts raise serious
+    questions about the sustainability of current battery production models.
+  </p>
 
-  <h2><b>Conference Paper</b></h2>
+  <p>
+    International attention has begun to focus on these issues. A UN-led panel has called for stronger governance and global
+    cooperation to address abuses in the extraction of critical minerals (The Guardian, 2024). However, meaningful change
+    requires pressure not only from policymakers but also from technology companies and consumers. Addressing ethical
+    sourcing is therefore essential if battery innovation is to be considered truly sustainable.
+  </p>
+</div>
 
-  <hr>
+<div class="section">
+  <h2>Technical Limitations of Lithium-Ion Batteries</h2>
+  <p>
+    Alongside ethical concerns, lithium-ion batteries face significant technical limitations that restrict their suitability
+    for future smartphones. Although improvements have been made over time, lithium-ion technology is approaching its
+    practical energy density ceiling. Degradation mechanisms such as lithium plating, structural instability, and solid
+    electrolyte interphase growth lead to capacity fade and reduced lifespan (Rahman and Alharbi, 2024).
+  </p>
 
-  <!-- TABLE OF CONTENTS -->
-  <div class="section">
-    <h2>Table of Contents</h2>
-    <ul>
-      <li><a href="#abstract">Abstract</a></li>
-      <li><a href="#introduction">Introduction</a></li>
-      <li><a href="#ethics">Ethical and Environmental Issues</a></li>
-      <li><a href="#technical">Technical Limitations</a></li>
-      <li><a href="#alternatives">Emerging Alternatives</a></li>
-      <li><a href="#industry">Industry Implementation</a></li>
-      <li><a href="#conclusion">Conclusion</a></li>
-      <li><a href="#references">References</a></li>
-    </ul>
-  </div>
+  <p>
+    These limitations directly affect user experience. Faster processors, higher refresh rate displays, and on-device AI
+    features increase power demand, yet battery capacity improvements yield diminishing returns. As a result, manufacturers
+    are constrained in how far they can push smartphone performance without sacrificing battery life or longevity.
+  </p>
 
-  <!-- ABSTRACT -->
-  <div class="section" id="abstract">
-    <h2>Better Batteries: Driving Sustainable and Efficient Power Solutions for Smartphones</h2>
-    <p>
-      Smartphones have advanced rapidly over the past decade, yet their batteries often lag behind in terms of efficiency, sustainability, and ethical sourcing. Lithium-ion batteries, which dominate the market, face both technical limits and serious ethical concerns, including human rights violations in mining. This article explores these challenges and examines silicon-carbon composite anodes as a promising alternative.
-    </p>
-  </div>
+  <p>
+    Consequently, further reliance on traditional lithium-ion chemistry risks stagnating innovation. Overcoming these
+    constraints requires new materials capable of delivering higher capacity, improved efficiency, and greater durability.
+    This need has driven research into alternative anode materials, particularly silicon-based composites.
+  </p>
+</div>
 
-  <!-- INTRODUCTION -->
-  <div class="section" id="introduction">
-    <h2>Introduction</h2>
-    <div id="Introduction_InText">
-      <p>
-        Smartphones have become indispensable in modern life, yet their rapid technological advancement has not been matched by improvements in battery technology. The topic of smartphone batteries particularly interests me because while devices have become smaller, faster, and more capable, their power sources remain limited.
-      </p>
-    </div>
-  </div>
+<div class="section">
+  <h2>Emerging Alternatives: Silicon-Carbon Composite Anodes</h2>
+  <p>
+    Silicon-carbon composite anodes represent one of the most promising alternatives to conventional graphite anodes.
+    Silicon offers an exceptionally high theoretical capacity of approximately 4,200 mAh g⁻¹, far exceeding that of graphite
+    at around 372 mAh g⁻¹ (Park et al., 2024). However, pure silicon undergoes extreme volume expansion during charging,
+    leading to mechanical failure and rapid degradation.
+  </p>
 
-  <!-- ANALYSIS -->
-  <div class="section" id="ethics">
-    <h2>Ethical and Environmental Issues in Battery Supply Chains</h2>
-    <div id="Analysis_InText">
-      <p>
-        A central concern with current lithium-ion technology lies in its ethical and environmental impact. Cobalt mining has been linked to child labour, unsafe working conditions, and environmental degradation, particularly in the Democratic Republic of Congo.
-      </p>
-    </div>
-  </div>
+  <p>
+    Embedding silicon within a carbon matrix addresses this issue by buffering volume changes and maintaining structural
+    integrity. Research demonstrates that silicon-carbon composites can achieve capacities of approximately 850 mAh g⁻¹
+    while retaining improved cycle stability and rate performance compared to graphite anodes (Park et al., 2024).
+    Advanced synthesis techniques further enhance ionic conductivity and reduce degradation over repeated cycles
+    (Park, Lee and Chae, 2024).
+  </p>
 
-  <div class="section" id="technical">
-    <h2>Technical Limitations of Lithium-Ion Batteries</h2>
-    <p>
-      Lithium-ion technology is nearing its practical ceiling, with degradation mechanisms such as solid electrolyte interphase growth and lithium plating leading to capacity fade over time.
-    </p>
-  </div>
+  <p>
+    What excites me most about this technology is its real-world potential. The use of more abundant materials offers hope
+    for reducing reliance on ethically problematic resources, while also enabling longer battery life. The increasing
+    battery capacities seen in recent smartphones reflect the tangible benefits of these material advancements.
+  </p>
+</div>
 
-  <div class="section" id="alternatives">
-    <h2>Emerging Alternatives: Silicon-Carbon Composite Anodes</h2>
-    <p>
-      Silicon-carbon composite anodes present a promising solution, offering higher theoretical capacity and improved cycle performance compared to traditional graphite anodes.
-    </p>
-  </div>
+<div class="section">
+  <h2>Industry Implementation and Innovation</h2>
+  <p>
+    Importantly, silicon-carbon battery technology is no longer confined to academic research. In 2025, HONOR’s
+    silicon-carbon battery was featured in TIME magazine’s Best Inventions of the Year, highlighting its successful
+    integration into consumer smartphones (Time, 2025). This demonstrates that alternative battery chemistries can be
+    deployed at scale.
+  </p>
 
-  <div class="section" id="industry">
-    <h2>Industry Implementation and Innovation</h2>
-    <p>
-      In 2025, HONOR’s silicon-carbon battery was featured in TIME magazine’s Best Inventions of the Year, demonstrating real-world adoption.
-    </p>
-  </div>
+  <p>
+    Industry adoption bridges the gap between laboratory research and real-world impact. Higher-capacity batteries allow
+    smartphones to last longer between charges and potentially extend device lifespans, reducing the frequency of upgrades
+    and associated resource extraction. This alignment of performance and sustainability shows that efficiency gains can
+    support ethical and environmental goals simultaneously.
+  </p>
 
-  <div class="section" id="conclusion">
-    <h2>Conclusion</h2>
-    <p>
-      Silicon-carbon composite anodes offer a viable path forward by balancing efficiency, sustainability, and ethical considerations.
-    </p>
-  </div>
+  <p>
+    As smartphone manufacturers continue to prioritise innovation, widespread adoption of silicon-carbon batteries could
+    mark a significant step toward more responsible and capable mobile technology.
+  </p>
+</div>
 
-  <!-- REFERENCES -->
-  <div class="section" id="references">
-    <h2>References</h2>
+<div class="section">
+  <h2>Conclusion</h2>
+  <p>
+    Lithium-ion batteries present a combination of ethical, environmental, and technical challenges that can no longer be
+    ignored. Human rights abuses in mineral extraction and the approaching performance limits of existing battery chemistry
+    create a clear need for change. Silicon-carbon composite anodes offer a viable alternative, delivering higher efficiency,
+    improved stability, and growing industry adoption.
+  </p>
 
-    <p>
-      Park, S.M. et al., 2024.
-      <a href="https://www.mdpi.com/2079-4991/14/23/1953" target="_blank">
-        Artificial graphite-based silicon composite anodes for lithium-ion batteries.
-      </a>
-    </p>
+  <p>
+    Moving forward, battery development must integrate efficiency with ethical sourcing and environmental responsibility.
+    Governments, corporations, and consumers all have roles to play in supporting this transition. For me, the emergence of
+    silicon-carbon batteries represents a genuine step toward a future where smartphones are not only more powerful but also
+    fairer and more sustainable for both people and the planet.
+  </p>
+</div>
 
-    <p>
-      Rights Lab, University of Nottingham, 2025.
-      <a href="https://www.nottingham.ac.uk/research/beacons-of-excellence/rights-lab/resources/reports-and-briefings/2025/august/blood-batteries.pdf" target="_blank">
-        Blood Batteries: The human rights and environmental impacts of cobalt mining in the DRC.
-      </a>
-    </p>
+<div class="section">
+  <h2>References</h2>
 
-    <p>
-      The Guardian, 2024.
-      <a href="https://www.theguardian.com/environment/2024/apr/26/un-led-panel-tackle-abuses-mining-critical-minerals" target="_blank">
-        UN-led panel to tackle abuses in mining critical minerals.
-      </a>
-    </p>
+  <p>
+    Park, S.M., Salunkhe, T.T., Yoo, J.H., Kim, I.H. and Kim, I.T., 2024.
+    Artificial graphite-based silicon composite anodes for lithium-ion batteries.
+    <i>Nanomaterials</i>, 14(23), 1953.
+  </p>
 
-    <p>
-      Time, 2025.
-      <a href="https://time.com/collections/best-inventions-2025/7318427/honor-silicon-carbon-battery/" target="_blank">
-        HONOR silicon-carbon battery featured in TIME Best Inventions 2025.
-      </a>
-    </p>
-  </div>
+  <p>
+    Park, I., Lee, H. and Chae, O.B., 2024.
+    Synthesis methods of Si/C composite materials for lithium-ion batteries.
+    <i>Batteries</i>, 10(11), 381.
+  </p>
 
-  <!-- WORD COUNT -->
-  <p id="totalWordCount"></p>
-  <hr>
+  <p>
+    Rahman, T. and Alharbi, T., 2024.
+    Exploring lithium-ion battery degradation.
+    <i>Batteries</i>, 10(7), 220.
+  </p>
 
-  <script>
-    // Function to calculate and return word count for a section
-    function displayWordCount(sectionId) {
-      const text = document.getElementById(sectionId).textContent
-      const wordArray = text.trim().split(/\s+/)
-      return wordArray.length
-    }
+  <p>
+    Rights Lab, University of Nottingham, 2025.
+    <i>Blood Batteries: The human rights and environmental impacts of cobalt mining in the DRC</i>.
+  </p>
 
-    // Function to calculate total word count from selected sections
-    function displayTotalWordCount() {
-      const IntroductionCount = displayWordCount("Introduction_InText")
-      const AnalysisCount = displayWordCount("Analysis_InText")
-      const totalWordCount = IntroductionCount + AnalysisCount
-      document.getElementById("totalWordCount").innerText =
-        `Total word count: ${totalWordCount}`
-    }
+  <p>
+    The Guardian, 2024.
+    UN-led panel to tackle abuses in mining critical minerals.
+  </p>
 
-    window.onload = displayTotalWordCount
-  </script>
+  <p>
+    Time, 2025.
+    HONOR silicon-carbon battery featured in TIME Best Inventions 2025.
+  </p>
+
+</div>
 
 </body>
 </html>
