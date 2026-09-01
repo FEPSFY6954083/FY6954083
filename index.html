@@ -38,18 +38,6 @@
 
 <body>
 
-<!-- FUNCTIONING TIMESTAMP -->
-<div id="last-updated">
-  Loading last modified time...
-</div>
-
-<button
-  onclick="verifyLastUpdatedTime()"
-  style="display: block; margin: 10px auto; padding: 8px 16px;">
-  Verify Last Modified Time
-</button>
-
-
 <img src="WebBanner2023.png" alt="Banner" width="1200" height="300">
 
 <h1>ENG0018 Computer Laboratory 2025/26</h1>
@@ -77,7 +65,7 @@
   </p>
 </div>
 
-<div class="section countable">
+<div class="section" id="Introduction_InText">
   <h2>Introduction</h2>
   <p>
     Smartphones are now deeply embedded in everyday life, serving as tools for communication, productivity, entertainment,
@@ -104,7 +92,7 @@
   </p>
 </div>
 
-<div class="section countable">
+<div class="section" id="Ethical_InText">
   <h2>Ethical and Environmental Issues in Battery Supply Chains</h2>
   <p>
     One of the most significant challenges associated with lithium-ion batteries lies in the ethical and environmental impact
@@ -128,7 +116,7 @@
   </p>
 </div>
 
-<div class="section countable">
+<div class="section" id="Technical_InText">
   <h2>Technical Limitations of Lithium-Ion Batteries</h2>
   <p>
     Alongside ethical concerns, lithium-ion batteries face significant technical limitations that restrict their suitability
@@ -150,7 +138,7 @@
   </p>
 </div>
 
-<div class="section countable">
+<div class="section" id="Alternatives_InText">
   <h2>Emerging Alternatives: Silicon-Carbon Composite Anodes</h2>
   <p>
     Silicon-carbon composite anodes represent one of the most promising alternatives to conventional graphite anodes.
@@ -174,7 +162,7 @@
   </p>
 </div>
 
-<div class="section countable">
+<div class="section" id="Industry_InText">
   <h2>Industry Implementation and Innovation</h2>
   <p>
     Importantly, silicon-carbon battery technology is no longer confined to academic research. In 2025, HONOR’s
@@ -196,7 +184,7 @@
   </p>
 </div>
 
-<div class="section countable">
+<div class="section" id="Conclusion_InText">
   <h2>Conclusion</h2>
   <p>
     Lithium-ion batteries present a combination of ethical, environmental, and technical challenges that can no longer be
@@ -213,60 +201,87 @@
   </p>
 </div>
 
+
+<!-- TIMESTAMP FOR SUBMISSION VALIDATION -->
+
+<div id="last-updated">Loading last update time...</div>
+
+<button
+  onclick="verifyLastUpdatedTime()"
+  style="display: block; margin: 10px 0; padding: 8px 16px;">
+  Verify Last Modified Time
+</button>
+
+
+<!-- TOTAL WORD COUNT -->
+
+<p id="totalWordCount"></p>
+
+
 <div class="section">
   <h2>References</h2>
 
   <p>
     Park, S.M., Salunkhe, T.T., Yoo, J.H., Kim, I.H. and Kim, I.T., 2024.
-    Artificial graphite-based silicon composite anodes for lithium-ion batteries.
+    <a href="https://www.mdpi.com/2079-4991/14/23/1953" target="_blank">
+      Artificial graphite-based silicon composite anodes for lithium-ion batteries.
+    </a>
     <i>Nanomaterials</i>, 14(23), 1953.
   </p>
 
   <p>
     Park, I., Lee, H. and Chae, O.B., 2024.
-    Synthesis methods of Si/C composite materials for lithium-ion batteries.
+    <a href="https://www.mdpi.com/2313-0105/10/11/381" target="_blank">
+      Synthesis methods of Si/C composite materials for lithium-ion batteries.
+    </a>
     <i>Batteries</i>, 10(11), 381.
   </p>
 
   <p>
     Rahman, T. and Alharbi, T., 2024.
-    Exploring lithium-ion battery degradation.
+    <a href="https://www.mdpi.com/2313-0105/10/7/220" target="_blank">
+      Exploring lithium-ion battery degradation.
+    </a>
     <i>Batteries</i>, 10(7), 220.
   </p>
 
   <p>
     Rights Lab, University of Nottingham, 2025.
-    <i>Blood Batteries: The human rights and environmental impacts of cobalt mining in the DRC</i>.
+    <a
+      href="https://www.nottingham.ac.uk/research/beacons-of-excellence/rights-lab/resources/reports-and-briefings/2025/august/blood-batteries.pdf"
+      target="_blank">
+      <i>Blood Batteries: The human rights and environmental impacts of cobalt mining in the DRC</i>.
+    </a>
   </p>
 
   <p>
     The Guardian, 2024.
-    UN-led panel to tackle abuses in mining critical minerals.
+    <a
+      href="https://www.theguardian.com/environment/2024/apr/26/un-led-panel-tackle-abuses-mining-critical-minerals"
+      target="_blank">
+      UN-led panel to tackle abuses in mining critical minerals.
+    </a>
   </p>
 
   <p>
     Time, 2025.
-    HONOR silicon-carbon battery featured in TIME Best Inventions 2025.
+    <a
+      href="https://time.com/collections/best-inventions-2025/7318427/honor-silicon-carbon-battery/"
+      target="_blank">
+      HONOR silicon-carbon battery featured in TIME Best Inventions 2025.
+    </a>
   </p>
 
 </div>
 
 
-<!-- FUNCTIONING WORD COUNT -->
-<p id="totalWordCount">
-  Total word count: calculating...
-</p>
-
-<hr>
-
-
 <script>
 
-  /*
-    TIMESTAMP
+  // ==========================================================
+  // TIMESTAMP FUNCTION
+  // Retrieves the latest commit from your GitHub repository.
+  // ==========================================================
 
-    This checks the most recent commit in your GitHub repository.
-  */
   async function getLastUpdatedTime() {
 
     const username = 'FEPSFY6954083';
@@ -280,7 +295,9 @@
       const response = await fetch(url);
 
       if (!response.ok) {
-        throw new Error('GitHub request failed');
+        throw new Error(
+          `GitHub API error: ${response.status}`
+        );
       }
 
       const commits = await response.json();
@@ -297,98 +314,125 @@
       } else {
 
         document.getElementById('last-updated').innerText =
-          'No commits found';
+          'No commits found in the repository.';
 
       }
 
     } catch (error) {
 
+      console.error(error);
+
       document.getElementById('last-updated').innerText =
-        'Unable to retrieve last modified time';
+        'Error fetching the last updated time. Please check the repository details.';
 
     }
   }
 
 
-  /*
-    Lets the button refresh the timestamp.
-  */
+  // ==========================================================
+  // VERIFY TIMESTAMP BUTTON
+  // Re-fetches the latest GitHub timestamp.
+  // ==========================================================
+
   function verifyLastUpdatedTime() {
 
     getLastUpdatedTime();
 
+    alert(
+      'Last modified time verified from GitHub API.'
+    );
+
   }
 
 
-  /*
-    WORD COUNT
+  // ==========================================================
+  // WORD COUNT FUNCTION
+  // Counts all sections AFTER Abstract and BEFORE References.
+  // ==========================================================
 
-    Only sections marked "countable" are included.
+  function displayWordCount(sectionId) {
 
-    Therefore:
-    - Abstract is excluded
-    - References are excluded
-    - Main article body is included
-  */
-  function displayTotalWordCount() {
+    const section =
+      document.getElementById(sectionId);
 
-    const sections =
-      document.querySelectorAll('.countable');
+    /*
+      Only paragraphs are counted.
+      The h2 heading is therefore excluded.
+    */
 
-    let combinedText = '';
+    const paragraphs =
+      section.querySelectorAll('p');
 
-    sections.forEach(function(section) {
+    let text = '';
 
-      /*
-        Only count paragraph text.
+    paragraphs.forEach(function(paragraph) {
 
-        This prevents section headings such as
-        "Introduction" from being included.
-      */
-      const paragraphs =
-        section.querySelectorAll('p');
-
-      paragraphs.forEach(function(paragraph) {
-
-        combinedText +=
-          ' ' + paragraph.textContent;
-
-      });
+      text += ' ' + paragraph.textContent;
 
     });
 
+    text = text.trim();
 
-    combinedText =
-      combinedText.trim();
-
-
-    let totalWordCount = 0;
-
-
-    if (combinedText !== '') {
-
-      const words =
-        combinedText.split(/\s+/);
-
-      totalWordCount =
-        words.filter(function(word) {
-
-          return word.length > 0;
-
-        }).length;
-
+    if (text === '') {
+      return 0;
     }
 
+    const wordArray =
+      text.split(/\s+/).filter(function(word) {
+        return word.length > 0;
+      });
 
-    document.getElementById('totalWordCount').innerText =
-      'Total word count: ' + totalWordCount;
+    return wordArray.length;
 
   }
 
 
-  /*
-    Run both when the page loads.
-  */
+  // ==========================================================
+  // TOTAL WORD COUNT
+  // Introduction + all body sections + Conclusion.
+  // Abstract and References are NOT counted.
+  // ==========================================================
+
+  function displayTotalWordCount() {
+
+    const IntroductionCount =
+      displayWordCount("Introduction_InText");
+
+    const EthicalCount =
+      displayWordCount("Ethical_InText");
+
+    const TechnicalCount =
+      displayWordCount("Technical_InText");
+
+    const AlternativesCount =
+      displayWordCount("Alternatives_InText");
+
+    const IndustryCount =
+      displayWordCount("Industry_InText");
+
+    const ConclusionCount =
+      displayWordCount("Conclusion_InText");
+
+
+    const totalWordCount =
+      IntroductionCount +
+      EthicalCount +
+      TechnicalCount +
+      AlternativesCount +
+      IndustryCount +
+      ConclusionCount;
+
+
+    document.getElementById("totalWordCount").innerText =
+      `Total word count: ${totalWordCount}`;
+
+  }
+
+
+  // ==========================================================
+  // LOAD BOTH FEATURES WHEN THE WEBPAGE OPENS
+  // ==========================================================
+
   window.addEventListener(
     'load',
     function() {
